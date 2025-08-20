@@ -1,0 +1,81 @@
+body {
+  color: rgb(10, 10, 10);
+    /* 20px - top and bottom; 40px - left and right */
+  padding: 20px 40px;
+  min-height: 100dvh;
+
+}
+
+
+
+ul {
+  list-style-type: none;
+  /* Margin is shorthand for margin-block-end, margin-block-start, margin-right, margin-top, margin-left, margin-bottom */
+  margin: 0;
+  color:hotpink;
+  padding: 0;
+
+  /* This 2 lines are used together */
+  display: flex;
+  gap: 20px;
+}
+
+/* 
+ selector  (e.g. ul) {
+    setting: value;
+ }
+*/
+
+
+a {
+  color: rgb(72, 74, 91);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(36, 37, 46);
+}
+
+.nav-link {
+  color: hotpink;
+}
+
+.nav-link:hover {
+  color: rgb(236, 35, 135);
+}
+
+
+/* main is an element selector (main = element name) */
+main {
+ text-align: center;
+}
+
+/* .card is a class selector (card = class name)*/
+.card {
+  border: 1px solid rgb(36, 37, 46);
+  padding: 40px;
+}
+
+.bg-light {
+  background-color: rgb(209, 209, 210);
+}
+
+
+footer {
+  margin-top: 60px;
+
+  /*  
+  Using position absolute is easier in this case, since sticky would be "activated" on scroll (which we don't have). 
+  In real life, we want to avoid using position aboslute/ relative, etc. and instead will be using flexbox and grid in the most cases.
+  */
+  position: absolute;
+  bottom: 0;
+}
+
+address {
+  margin-top: 20px;
+}
+
+.row {
+  display: block;
+  margin-bottom: 4px;
+}

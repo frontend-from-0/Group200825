@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS in HTML -->
+    <style>
+      body {
+        background-color: #abadb0;
+      }
+    </style>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <!-- Inline styles (DO NOT USE!!!) -->
+  <body style="margin: 0">
+    <!-- Semantic element -->
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li>
+            <!-- Relative URL -->
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+          <li>
+            <!-- Absolut URL example: https://google.com/about.html -->
+            <a class="nav-link" href="./about.html">About us</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- h1, h2, div are sibling elements (elements that are placed side by side) -->
+      <h1>Lesson 2</h1>
+
+      <h2>
+        Learn more about HTML
+        <a
+          href="https://w3schools.com/html/default.asp"
+          target="_blank"
+          rel="no-referrer"
+          >here</a
+        >
+      </h2>
+
+      <!-- Div is a parent of the p element -->
+      <div class="card bg-light">
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+          laudantium, aliquam cupiditate laborum deleniti aperiam temporibus
+          libero possimus nisi esse doloremque, at eius qui distinctio, magni
+          porro animi facere dolor?
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+          laudantium, aliquam cupiditate laborum deleniti aperiam temporibus
+          libero possimus nisi esse doloremque, at eius qui distinctio, magni
+          porro animi facere dolor?
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <span>Email: </span
+        ><a
+          href="mailto:email@domain.com?subject=Summer%20Party&body=You%20are%20invited%20to%20a%20big%20summer%20party!"
+          >email@domain.com</a
+        >
+      </div>
+
+      <div>
+        <span>Tel: </span><a href="tel:00903321234567">+90 332 123 45 67</a>
+      </div>
+
+      <address>
+        <span class="row">Box 564, Disneyland</span>
+        <span class="row">USA</span>
+      </address>
+    </footer>
+  </body>
+</html>
