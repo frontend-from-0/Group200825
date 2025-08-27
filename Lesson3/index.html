@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Semantic element -->
+    <header>
+      <h1>Lesson <span class="accent">3</span></h1>
+    </header>
+
+    <main>
+      <h2>Contact form</h2>
+      <!-- Alternative method is POST -->
+      <form method="GET">
+        <div class="input-group">
+          <label class="full-width" for="full_name">Full name</label>
+          <input
+            class="full-width input-field"
+            type="text"
+            id="full_name"
+            name="full-name"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label class="full-width" for="tel">Tel</label>
+          <input class="full-width input-field" type="tel" id="tel" name="tel" required placeholder="+46 73 221 12 23"
+          />
+        </div>
+
+        <div class="input-group">
+          <label class="full-width" for="email">Email</label>
+          <input class="full-width input-field" type="email" id="email" name="email" />
+        </div>
+
+        <div class="input-group">
+          <label for="color" class="mr-10">You favourite color</label>
+          <input type="color" id="color" name="favourite-color" />
+        </div>
+
+        <fieldset class="input-group">
+          <legend>What is your native language?</legend>
+          <input
+            type="radio"
+            value="Turkish"
+            id="turkish-lang"
+            name="native-language"
+          />
+          <label for="turkish-lang" class="mr-20">Turkish</label>
+
+          <input
+            type="radio"
+            value="English"
+            id="english-lang"
+            name="native-language"
+          />
+          <label for="english-lang" class="mr-20">English</label>
+
+          <input
+            type="radio"
+            value="Spanish"
+            id="spanish-lang"
+            name="native-language"
+          />
+          <label for="spanish-lang">Spanish</label>
+        </fieldset>
+
+        <fieldset class="input-group">
+          <legend>What languages do you want to learn?</legend>
+          <input
+            type="checkbox"
+            value="html"
+            id="html-lang"
+            name="language-to-learn-html"
+          />
+          <label for="html-lang" class="mr-20">HTML</label>
+
+          <input
+            type="checkbox"
+            value="css"
+            id="ccs-lang"
+            name="language-to-learn-js"
+          />
+          <label for="ccs-lang" class="mr-20">CSS</label>
+
+          <input
+            type="checkbox"
+            value="js"
+            id="js-lang"
+            name="language-to-learn-css"
+          />
+          <label for="js-lang">JavaScript</label>
+        </fieldset>
+
+        <div class="input-group">
+          <label for="cars" class="full-width">Choose a car</label>
+
+          <select name="cars" id="cars" class="full-width input-field">
+            <option value="">Select a car</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="message" class="full-width">Message</label>
+          <textarea name="message" id="message" class="full-width input-field"></textarea>
+        </div>
+
+        
+        <input class="btn btn-primary" type="submit" value="Send message" />
+        <input class="btn btn-secondary" type="reset" />
+      </form>
+    </main>
+
+    <footer>
+      <span>© Code2Career</span>
+      <a href="mailto:name@domain.com">name@domain.com</a>
+    </footer>
+  </body>
+</html>
