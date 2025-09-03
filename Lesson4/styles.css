@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav {
+  background-color: aliceblue;
+}
+
+.nav__list {
+  width: max-content;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.nav__item {
+  margin: 20px;
+  display: inline-block;
+}
+
+.nav__link {
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+
+
+
+.container {
+  height: 400px;
+  width: 400px;
+  background-color: grey;
+  /* Shorthand property
+  border: 10px solid green; */
+
+  border-top: 20px solid green;
+  border-right: 15px solid green;
+  border-bottom: 30px solid green;
+  border-left: 25px solid green;
+
+  /* Shorthand property: 
+  border-radius: 5%; */
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+
+  /* 40px on all sides */
+  margin: 40px;
+
+  /* 40px on top and bottom, left and right  */
+  margin: 40px auto;
+
+  /* 40px - top, auto - right & left, 60px - bottom */
+  margin: 40px auto 60px;
+
+  /* 40px - top, 50px - right, 60px - bottom, auto - left */
+  margin: 40px 50px 60px auto;
+}
+
+.content {
+  width: 200px;
+  background-color: yellow;
+  padding: 20px;
+  margin: 10px;
+} 
+
+p {
+  margin: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+
+
+/* 
+BEM
+
+Block - header, main, menu, footer, nav, card
+
+Element - item, button, text, link, title, subtitle
+
+Modifier - active, vistied, focused, large, small, secondary, primary
+
+
+
+
+block__element--modifier
+
+nav__link--action - block, element, modifier
+
+nav--top - block and modifier
+
+button--secondary - element and modifier
+
+
+*/
