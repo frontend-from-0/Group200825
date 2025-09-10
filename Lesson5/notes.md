@@ -35,7 +35,7 @@ When multiple CSS rules target the same element, the browser has to decide which
 Example:
 p { color: black; }         → 1 point
 .text { color: blue; }      → 10 points
-\#main { color: red; }       → 100 points
+#main { color: red; }       → 100 points
 → The text will be red, because #main has the highest specificity.
 
 3. Inline Style Always Wins
