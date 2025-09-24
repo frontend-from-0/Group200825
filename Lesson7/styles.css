@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --max-content: 1110px;
+  --Colour-Main-Blue-500: #505f98;
+  --Colour-secondary-white-100-general: #fff;
+  --Colour-Main-Blue-800: #111b47;
+  --Colour-Main-Blue-900: #091133;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-image: url('./assets//hero_bg.svg');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  /* Updated background-size prop to restrict the height of image to 100vh so it does not stretch to much down */
+  background-size: auto 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+section {
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.gap-30 {
+  gap: 30px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav--top {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.nav__list--top {
+  color: var(--Colour-Main-Blue-500);
+  gap: 60px;
+}
+
+.btn {
+  min-width: 160px;
+  padding: 6px 12px;
+  text-align: center;
+  border-radius: 2px;
+  border: 2px solid var(--Colour-Main-Blue-800);
+}
+
+.btn--primary {
+  background-color: var(--Colour-Main-Blue-800);
+  color: var(--Colour-secondary-white-100-general);
+}
+
+.btn--primary:hover {
+  background-color: var(--Colour-Main-Blue-900);
+  color: var(--Colour-secondary-white-100-general);
+}
+
+.text-xs {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.text-md {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.text-lg {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.min-height-100 {
+  min-height: 100vh;
+}
+
+.min-height-70 {
+   min-height: 70vh;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.btn--outline {
+  border: 2px solid var(--Colour-Main-Blue-900);
+  color: var(--Colour-Main-Blue-900);
+}
+
+.btn--outline:hover {
+  color: var(--Colour-secondary-white-100-general);
+  background-color: var(--Colour-Main-Blue-900);
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-70 {
+  margin-top: 70px;
+}
