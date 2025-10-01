@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="#">AppName</a>
+      <ul>
+        <li><a href="#">Add New Task</a></li>
+        <li><a href="#">Teams</a></li>
+        <li><a href="#">Members</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="page-heading">
+        <h1>Teams</h1>
+        <a class="btn--primary" href="#">New Team</a>
+      </div>
+      <form>
+        <input
+          class="searchinput"
+          type="text"
+          placeholder="Search teams"
+          aria-label="Search teams"
+        />
+      </form>
+      <section class="table">
+        <h3>Team Name</h3>
+        <h3>Members</h3>
+        <h3>Tasks Completed</h3>
+        <h3>Actions</h3>
+        <div class="divider"></div>
+
+        <span class="table__cell">Team Alpha</span>
+        <span class="table__cell">5</span>
+        <div class="progress__container table__cell">
+          <div class="progress-bar">
+            <div class="progress-bar__progress"></div>
+          </div>
+          <span>75</span>
+        </div>
+        <a class="table__cell" href="">Edit</a>
+
+        <div class="divider"></div>
+        <span class="table__cell">Team Beta</span>
+        <span class="table__cell">3</span>
+        <div class="progress__container table__cell">
+          <div class="progress-bar">
+            <div class="progress-bar__progress"></div>
+          </div>
+          <span>25</span>
+        </div>
+        <a class="table__cell" href="">Edit</a>
+        <div class="divider"></div>
+        <span class="table__cell">Team Gamma</span>
+        <span class="table__cell">4</span>
+        <div class="progress__container table__cell">
+          <div class="progress-bar">
+            <div class="progress-bar__progress"></div>
+          </div>
+          <span>50</span>
+        </div>
+        <a class="table__cell" href="">Edit</a>
+      </section>
+    </main>
+  </body>
+</html>
