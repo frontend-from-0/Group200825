@@ -1,0 +1,7 @@
+- Try to use styles that will work for all device types
+- Mobile-first is preferred approach when developing responsive pages
+- Adjust white space according to the screen size
+- Adjust font sizes according to the screen size
+- Use correct image/video sizes for the screen
+- Interactive elements shoul be at least 48px, and there should be enough white space around them
+- Use Media query rules to adjust styles based on the device size 

@@ -7,6 +7,50 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <nav class="nav--top">
+      <button class="hamburger__button">
+        <img src="./assets/icons/hamburger.svg" alt="hamburger menu" />
+      </button>
+      <a href="" class="nav__logo"
+        ><img src="./assets/logo.svg" alt="Travlog log"
+      /></a>
+      <ul class="nav__list gap-64" id="nav-pages">
+        <li><a href="">Home</a></li>
+        <li><a href="">Discover</a></li>
+        <li><a href="">Special Deals</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
 
+      <ul class="nav__list gap-16" id="nav-signup-buttons">
+        <li><a href="">Log In</a></li>
+        <li><a href="">Sign Up</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div >
+          <span>Explore the world!</span>
+          <h1>Travel top destination of the world</h1>
+          <p>
+            We always make our customer happy by providing as many choices as
+            possible
+          </p>
+          <div>
+            <a href="">Get Started</a>
+            <a href="">Watch Demo</a>
+          </div>
+        </div>
+        <picture>
+          <source srcset="./assets/hero_lg.webp" media="(min-width: 768px)" />
+          <source
+            srcset="./assets/hero_xs.webp"
+            media="(max-width: 767.98px)"
+          />
+          <img src="./assets/hero_lg.webp" alt="travel collage" />
+        </picture>
+        
+      </section>
+    </main>
   </body>
 </html>
