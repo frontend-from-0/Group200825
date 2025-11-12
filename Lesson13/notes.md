@@ -1,5 +1,5 @@
 # What is JavaScript?
-JavaScript is a dynamic, lightweight, and versatile programming language primarily used for web development. It's a core technology of the World Wide Web, alongside HTML and CSS, and is supported by 99% of websites for client-side functionality.
+JavaScript (JS) is a dynamic, lightweight, and versatile programming language primarily used for web development. It's a core technology of the World Wide Web, alongside HTML and CSS, and is supported by 99% of websites for client-side functionality.
 
 **HTML is the skeleton, CSS is the skin and clothes, and JavaScript is the brain that lets the body move and react.**
 
