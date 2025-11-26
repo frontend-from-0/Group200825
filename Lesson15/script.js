@@ -7,6 +7,24 @@
    - Call the function with different passwords and log the result.
 */
 
+console.log('Ex. 1');
+
+function checkPassword(password) {
+  if (password.length >= 8) {
+    console.log('Password length is sufficient.');
+  } else {
+    console.log('Password is too short.');
+  }
+}
+
+const password = 'abcdefg';
+checkPassword(password);
+
+checkPassword('asdadasdasdas');
+checkPassword('ababbabab');
+checkPassword('aarararatagaaghag');
+
+console.log('-------');
 
 /*
 2. Uppercase Name
@@ -15,6 +33,16 @@
    - Example: "John Doe" -> "JOHN DOE"
 */
 
+console.log('Ex. 2');
+function uppercaseName(name) {
+  console.log(name.toUpperCase());
+}
+
+uppercaseName('cihan');
+uppercaseName('omer');
+uppercaseName('sevgi');
+
+console.log('-------');
 
 /*
 3. Lowercase Email
@@ -31,6 +59,23 @@
    - Example: "user@example.com" -> "example.com"
 */
 
+console.log('Ex. 3');
+
+function getDomain(email) {
+  const indexOfAtSign = email.indexOf('@');
+  console.log(email.substring(indexOfAtSign + 1));
+}
+
+function getDomain2(email) {
+  const array = email.split('@');
+  console.log(array[1]);
+}
+
+getDomain('user@example.com');
+getDomain2('johndoe@example.com');
+getDomain2('someuser@example.com');
+
+console.log('-------');
 
 /*
 5. Check Substring
@@ -39,6 +84,22 @@
    - If true, log: "<word> found in sentence."
    - Else, log: "<word> not found in sentence."
 */
+
+function containsWord(sentence, pattern) {
+  const isFound = sentence.includes(pattern);
+
+  if (isFound) {
+    console.log(`The word ${pattern} is found in sentence.`);
+  } else {
+    console.log(`The word ${pattern} is not found in sentence.`);
+  }
+}
+
+containsWord(
+  'Define a function HTML `containsWord(sentence, word)` that checks if the `sentence',
+  'ine',
+);
+containsWord('Define a function', 'HTML');
 
 /*
 6. File Extension Check
@@ -56,6 +117,22 @@
      - Logs "Numbers are equal" if they are the same
 */
 
+console.log('Ex. 7');
+
+function compareNumbers(a, b) {
+  if (a > b) {
+    console.log(`a is bigger`);
+  } else if (b > a) {
+    console.log(`b is bigger`);
+  } else {
+    console.log(`a = b, Numbers are equal`);
+  }
+}
+
+compareNumbers(8, 3);
+compareNumbers(3, 9);
+compareNumbers(3, 3);
+
 /*
 8. Palindrome Check
    - Define a function `isPalindrome(str)` that checks if `str` is the same
@@ -63,6 +140,23 @@
    - If it is, log: "<str> is a palindrome"
    - Otherwise, log: "<str> is not a palindrome"
 */
+function isPalindrome(str) {
+  const array = str.split('');
+  const reversedArray = array.reverse();
+  const reversedStr = reversedArray.join('')
+  
+  console.log(str, reversedStr, reversedArray)
+
+  if (str.toLowerCase() === reversedStr.toLowerCase()) {
+    console.log(`${str} is a palindrome`);
+  } else {
+    console.log(`${str} is not a palindrome`);
+  }
+}
+
+isPalindrome('abc')
+isPalindrome('Aba')
+
 
 /*
 9. String Truncation
@@ -94,7 +188,6 @@
      7 -> "Sunday"
      - Log the matched day or "Invalid day" if out of range.
 */
-
 
 // value == value
 /// value and type === value and type
