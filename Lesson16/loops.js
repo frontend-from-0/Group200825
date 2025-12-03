@@ -2,9 +2,11 @@
 For loop
 The for loop is the most common loop and is used when the number of iterations is known before the loop starts.
 */
-for (let i = 0; i < 5; i++) {
-  console.log('For loop iteration:', i);
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
 }
+
+
 
 /* 
 While Loop
