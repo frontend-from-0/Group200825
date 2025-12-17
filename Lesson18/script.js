@@ -27,8 +27,26 @@ Node.js or a browser console.
    array `#items` to store the cart items.
 3. Add a `viewCart` method to display all items in the cart.
 */
+class ShoppingCart {
+  #items;
+  #total;
 
-/*
+  constructor() {
+    this.#items = [];
+    this.#total = 0;
+  }
+
+  viewCart() {
+    console.log('Viewing the cart');
+
+    for (const item of this.#items) {
+      console.log(
+        `Name: ${item.name}, Price: ${item.price.amount} ${item.price.currency} Quantity: ${item.quantity}`,
+      );
+    }
+  }
+
+  /*
 -----------------------------------------------------------
   STEP 2: Add Items to the Cart
 -----------------------------------------------------------
@@ -39,6 +57,75 @@ Node.js or a browser console.
      - If it exists, increase the quantity.
      - Otherwise, add the new item to the `#items` array.
 */
+
+  // newItem should be an object
+  addItem(newItem) {
+    console.log(
+      `Adding a new item to the cart. Item name ${newItem.name}, quantity: ${newItem.quantity}`,
+    );
+    for (let i = 0; i < this.#items.length; i++) {
+      if (this.#items[i].name.includes(newItem.name)) {
+        this.#items[i].quantity++;
+         this.#total += newItem.price.amount;
+        return;
+      }
+    }
+
+    this.#items.push(newItem);
+    this.#total += newItem.price.amount;
+  }
+
+  removeItem(name) {
+    console.log(`Removing an item from the cart. Item name ${name}.`);
+    for (let i = 0; i < this.#items.length; i++) {
+      if (this.#items[i].name === name) {
+        this.#total -= this.#items[i].price.amount;
+        this.#items.splice(i, 1);
+        console.log(`Removed item ${name}.`);
+      }
+    }
+  }
+
+  // getTotal() {
+  //   let total = 0;
+  //   for (const item of this.#items) {
+  //     total += item.price.amount * item.quantity;
+  //   }
+  //   console.log(`The total of the all products: ${total}`);
+  //   return total;
+  // }
+
+  get total () {
+    console.log(`The total of the all products: ${this.#total}`);
+    return this.#total;
+  }
+}
+
+const shoppingCart1 = new ShoppingCart();
+shoppingCart1.viewCart();
+shoppingCart1.addItem({
+  name: 'Tablet',
+  price: { amount: 1000, currency: 'USD' },
+  quantity: 1,
+});
+
+shoppingCart1.viewCart();
+shoppingCart1.addItem({
+  name: 'Tablet',
+  price: { amount: 1000, currency: 'USD' },
+  quantity: 1,
+});
+shoppingCart1.addItem({
+  name: 'Monitor',
+  price: { amount: 500, currency: 'USD' },
+  quantity: 2,
+});
+shoppingCart1.viewCart();
+shoppingCart1.getTotal();
+
+shoppingCart1.removeItem('Tablet');
+shoppingCart1.viewCart();
+shoppingCart1.getTotal();
 
 /*
 -----------------------------------------------------------
@@ -60,6 +147,7 @@ Node.js or a browser console.
      the cart.
 */
 
+
 /*
 -----------------------------------------------------------
   STEP 5: Apply a Discount
@@ -71,5 +159,3 @@ Node.js or a browser console.
      code is valid.
 3. Use an object to store discount codes and their values.
 */
-
-
