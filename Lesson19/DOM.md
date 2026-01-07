@@ -1,3 +1,4 @@
+
 # DOM (Document Object Model)
 
 The `DOM (Document Object Model)` is a programming interface for web documents.
