@@ -31,9 +31,15 @@
           <h2>Your Appointment</h2>
           <p>Date: <span id="selected-date">-</span></p>
           <p>Time: <span id="selected-time">-</span></p>
-          <button id="confirm">Confirm Booking</button>
+          <button id="confirm" disabled type="submit">Confirm Booking</button>
         </aside>
       </form>
+
+      <div class="hidden" id="confirmation-message">
+        <h2>Booking is confirmed.</h2>
+        <p>Date: <span id="confirmed-date">-</span></p>
+        <p>Time: <span id="confirmed-time">-</span></p>
+      </div>
     </div>
 
     <script src="script.js"></script>

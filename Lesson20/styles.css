@@ -69,6 +69,15 @@ fieldset {
   background-color: #ddd;
 }
 
+.selected {
+  background-color: #0077cc;
+  color: white;
+}
+
+.selected:hover {
+  background-color: #005fa3;
+}
+
 .summary {
   flex: 1;
   background: white;
@@ -91,6 +100,11 @@ fieldset {
 
 #confirm:hover {
   background-color: #005fa3;
+}
+
+#confirm:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .hidden {
