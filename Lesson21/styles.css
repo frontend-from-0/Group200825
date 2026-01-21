@@ -21,7 +21,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 24px 0;
+  margin: 32px 0;
 }
 
 input {
@@ -35,6 +35,8 @@ input {
 .input-error {
   color: rgb(98, 37, 37);
   font-size: 14px;
+  margin: 0;
+  height: 16px;
 }
 
 .btn-success {

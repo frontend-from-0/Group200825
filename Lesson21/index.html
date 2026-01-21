@@ -16,8 +16,9 @@
           type="email"
           placeholder="email@example.com"
           name="email"
+          aria-describedby="emailError"
         />
-        <p id="emailError" class="input-error hidden"></p>
+        <p id="emailError" class="input-error" aria-live="polite"></p>
       </div>
       <div class="input-group">
         <label for="phone">Phone</label>
@@ -27,7 +28,7 @@
           placeholder="555 123 4567"
           name="phoneNumber"
         />
-        <p id="phoneError" class="input-error hidden"></p>
+        <p id="phoneError" class="input-error"></p>
       </div>
       <div class="input-group">
         <label for="firstname">First Name</label>
@@ -36,11 +37,14 @@
           type="text"
           placeholder="Sophia"
           name="firstname"
+          
         />
+        <p id="firstnameError" class="input-error"></p>
       </div>
       <div class="input-group">
         <label for="lastname">Last Name</label>
         <input id="lastname" type="text" placeholder="Clark" name="lastname" />
+        <p id="lastnameError" class="input-error"></p>
       </div>
 
       <div class="input-group">
