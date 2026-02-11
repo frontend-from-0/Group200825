@@ -81,7 +81,8 @@ fetch('https://api.example.com/data', {
 fetch('https://jsonplaceholder.typicode.com/posts')
   .then((response) => response.json())
   .then((json) => console.log(json))
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error))
+  .finally(() => console.log('Saying hello no matter the result'));
 
 // Same code using AJAX
 const xhr = new XMLHttpRequest();
