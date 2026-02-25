@@ -21,6 +21,7 @@ Here’s why we need them:
 Fetch API uses Promises under the hood, it's the main way how we will be using them.
 */
 
+
 /*
   How to create a Promise?
 
@@ -40,6 +41,8 @@ const myPromise = new Promise((resolve, reject) => {
     }
   }, 2000);
 });
+
+
 
 myPromise
   .then((result) => {
