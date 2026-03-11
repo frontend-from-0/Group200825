@@ -13,11 +13,14 @@ const wordsExercise1 = [
 	'jungle',
 ];
 
-
+console.log(wordsExercise1.map((word) => word.toUpperCase()), wordsExercise1);
 
 // Exercise 2:
 // Given an array of numbers, square each number using .map().
 const numbersExercise2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const squareNumbers = numbersExercise2.map(number => number ** 2);
+console.log(numbersExercise2, squareNumbers);
 
 
 // Exercise 3:
@@ -85,6 +88,10 @@ const products = [
 	},
 ];
 
+const productNames= products.map(product => product.name);
+console.log(productNames);
+
+
 // Exercise 4:
 // Given an array of words, find the length of each word using .map().
 const wordsExercise4 = [
@@ -99,6 +106,8 @@ const wordsExercise4 = [
 	'island',
 	'jungle',
 ];
+const wordLength = wordsExercise4.map(word => word.length)
+console.log(wordLength);
 
 // Exercise 5:
 // Given an array of student objects with their names and grades, extract an array of only the student names and grade using .map(). E.g. ['Alice A', ...]

@@ -13,7 +13,8 @@
 // Exercise 1:
 // Calculate the sum of all numbers in the given array.
 const numbersEx1 = [1, 2, 3, 4, 5];
-
+const sum = numbersEx1.reduce((acc, currentVal) => acc + currentVal);
+console.log('The total is: ', sum);
 
 // Exercise 2:
 // Find the maximum value in the given array. (Hint: Use -Infinity to compare values to)
@@ -42,15 +43,16 @@ const numbersEx4 = [10, 20, 30, 40, 50];
 
 // Exercise 5: Explain the code below
 // Count the number of unique elements in the array.
-const numbersEx5 = [1, 2, 3, 2, 4, 3, 5];
 const numbers = [1, 2, 3, 2, 4, 3, 5];
 
 const uniqueCount = numbers.reduce((accumulator, currentValue) => {
   if (!accumulator.includes(currentValue)) {
     accumulator.push(currentValue);
+    return accumulator;
+  } else {
+    return accumulator.filter(n => n !== currentValue);
   }
-  return accumulator;
-}, []).length;
+}, []);
 
 console.log(uniqueCount); // Output: 5
 

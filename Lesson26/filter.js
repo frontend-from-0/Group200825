@@ -2,11 +2,13 @@
 // Given an array of numbers, filter out the even numbers.
 const numbersExercise1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+const oddNumbers = numbersExercise1.filter((element) => element % 2 !== 0);
+console.log(oddNumbers);
 
 // Exercise 2:
 // Given an array of strings, filter out the strings that contain the letter "a".
 const wordsExercise2 = [
-	'apple',
+	'Apple',
 	'banana',
 	'car',
 	'dog',
@@ -14,10 +16,12 @@ const wordsExercise2 = [
 	'flower',
 	'guitar',
 	'house',
-	'island',
+	'islAnd',
 	'jungle',
 ];
 
+const wordsWithoutA = wordsExercise2.filter((word) => !word.toLowerCase().includes("a"));
+console.log(wordsWithoutA);
 
 // Exercise 3:
 // Given an array of objects representing books, filter out the books with a price less than $10.
@@ -83,6 +87,10 @@ const booksExercise9 = [
 		price: 9.99,
 	},
 ];
+
+// const booksOverTen = booksExercise9.filter(book => book.price >= 10).map(book => book.title + ' - ' + book.price);
+const booksOverTen = booksExercise9.filter(book => book.price >= 10);
+console.log(booksOverTen);
 
 
 // Exercise 4:
@@ -150,6 +158,8 @@ const usersExercise4 = [
 	},
 ];
 
+const usersAbove25 = usersExercise4.filter(user => user.age >=25);
+console.log(usersAbove25);
 
 // Exercise 5:
 // Given an array of sentences, filter out the sentences that have more than 10 words.
@@ -325,6 +335,11 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
+
+const lowGrades = ['C', 'C--', 'D++', 'D+', 'D', 'D--', 'F', 'F+', 'F++', 'F--', 'F-']; 
+
+const studentsHigherC = studentsExercise9.filter(student => !lowGrades.includes(student.grade))
+console.log(studentsHigherC)
 
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".

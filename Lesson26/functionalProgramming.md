@@ -18,7 +18,7 @@ console.log(operation(2, 3)); // Output: 5
 ```
 const square = (num) => num * num;
 
-const pureFunction = (arr) => arr.map(square);
+const pureFunction = (arr) => arr.map(square); 
 const inputArray = [1, 2, 3];
 console.log(pureFunction(inputArray)); // Output: [1, 4, 9]
 ```
@@ -75,6 +75,7 @@ const outerFunction = (x) => {
 };
 
 const addFive = outerFunction(5);
+
 console.log(addFive(3)); // Output: 8
 ```
 
