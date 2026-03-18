@@ -3,25 +3,25 @@
 const numbers = ['hello', null, true, undefined, function () {console.log(hello);}];
 
 // Without destructuring
+// const firstEl = numbers[0];
+// const secondEl = numbers[1];
 
 // With destructuring
-
+// const [firstEl, secondEl, thirdEl, fourthEl, fifthEl] = numbers;
 
 
 // Skipping Elements
-// const [first, , , fourth] = [0, 0, 0];
-// console.log(first); 
-// console.log(fourth);
-// console.log('--------'); // 4
+// const [firstEl, , , , fifthEl] = numbers;
+
 
 
 // Using Rest Parameters to Capture the Rest of the Elements
-const [first, second, ...remaningElementsArray] = numbers;
-console.log(first, second, remaningElementsArray);
+// const [, , ...remaningElementsArray] = numbers;
 
 
-// Default Values
-
+// Default Values (replaced undefined but not null or other falsy values!!)
+// const [name, surname = 'Surname is missing', phone = 'The number is missing'] = ['john', null, undefined];
+// console.log(name, surname, phone);
 
 
 // Objects
@@ -35,17 +35,21 @@ const person = {
 };
 
 // Without destructuring
-
+// const name = person[name];
+// const job = person[job];
 
 // With destructuring
-
+// const {name, job} = person;
+// console.log('job', job, 'name', name);
 
 // Renaming Variables
-
+// const {name: firstName, job: jobTitle} = person;
+// console.log('job', jobTitle, 'name', firstName);
 
 
 // Default Values
-
+// const {name: firstName, job: jobTitle = 'N/A', address = 'N/A'} = person;
+// console.log('job', jobTitle, 'name', firstName, 'address', address);
 
 // Nested Objects
 
@@ -62,10 +66,15 @@ const personWithContactInfo = {
   }
 };
 
+// const {name: firstName, contact: {address: {postcode}}} = personWithContactInfo;
+// console.log('name', firstName, 'address', address);
+
 
 
 // Rest Properties
+const {name, age, ...otherInfo} = personWithContactInfo;
 
+console.log('name', name, 'age', age, otherInfo);
 
 
 
