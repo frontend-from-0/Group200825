@@ -1,17 +1,18 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Playfair_Display, Inter } from 'next/font/google';
 import { QuotesContextProvider } from '@/app/QuotesContext';
-import Link from 'next/link'
+import { TopNav } from '@/app/Navbar';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-sans',
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const playfairDisplay = Playfair_Display({
+  variable: '--font-heading',
   subsets: ['latin'],
-});
+})
+
 
 export const metadata = {
   title: 'Random Quotes Application',
@@ -22,21 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang='en'
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <nav>
-        <ul>
-          <li>
-            <Link href='/'>Home</Link>
-          </li>
-          <li>
-            <Link href='/user/quotes/liked'>Liked Quotes</Link>
-          </li>
-        </ul>
-      </nav>
-      <QuotesContextProvider>
-        <body className='min-h-full'>{children}</body>
-      </QuotesContextProvider>
+      <body className='min-h-full'>
+        <QuotesContextProvider>
+          <TopNav />
+          {children}
+        </QuotesContextProvider>
+      </body>
     </html>
   );
 }

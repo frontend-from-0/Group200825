@@ -1,4 +1,5 @@
 export const InlineCssExample = () => {
+  // This is a plain JS object!
   const divStyle = {
     color: 'var(--color-primary)',
     textAlign: 'center',

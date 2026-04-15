@@ -1,7 +1,8 @@
 import { styled } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled('div')(
+  ({ theme }) => ({
   color: theme.palette.primary.main,
   textAlign: 'center',
   backgroundColor: 'var(--color-lighter)',
@@ -10,7 +11,8 @@ const StyledDiv = styled('div')(({ theme }) => ({
   maxWidth: '500px',
   margin: `${theme.spacing * 5} auto`,
   padding: theme.spacing * 5,
-}));
+})
+);
 
 const StyledTypography = styled(Typography)`
   color: var(--color-default);

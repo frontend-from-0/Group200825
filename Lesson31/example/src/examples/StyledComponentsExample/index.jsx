@@ -1,5 +1,6 @@
 import { styled, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const StyledDiv = styled('div')`
 	color: ${props => props.color};
@@ -29,6 +30,7 @@ export const StyledComponentsExample = () => {
 				tagged template literals. It's like merging styles and components into
 				one, which can be really powerful for component-based designs.
 			</StyledTypography>
+			<Button variant='contained' color='warning'>Click me</Button>
 		</StyledDiv>
 	);
 };
