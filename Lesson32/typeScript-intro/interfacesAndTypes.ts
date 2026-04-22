@@ -5,7 +5,7 @@ interface User {
   address?: Address;
 }
 
-const user1: User = { id: 1, name: "John" };
+const user1: User = { id: 1, name: "John"};
 const user2: User = { id: 2, name: "Jane", age: 20};
 const user4: User = { id: 3, name: "Jake", address: { line1: "123 Main St", city: "Anytown", zip: "12345" } };
 

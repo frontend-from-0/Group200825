@@ -33,8 +33,8 @@ enum Weekday {
   //...
 };
 
-const Weekdays = Object.values(Weekday);
-const WeekdayKeys = Object.keys(Weekday);
+const Weekdays = Object.values(Weekday); // 'Monday', 'Tuesday', 'Wednesday'
+const WeekdayKeys = Object.keys(Weekday); // MO, TUE, WED
 
 console.log(Weekdays);
 
@@ -77,6 +77,13 @@ type MyObject = {
   postCode: string
 }
 
+
+const someObject: MyObject = {
+  line1: 'Some street',
+  line2: 'Some other street info',
+  city: 'The best city',
+  postCode: '123 23'
+}
 
 
 
