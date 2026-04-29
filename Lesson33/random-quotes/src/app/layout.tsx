@@ -16,7 +16,7 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata = {
   title: 'Random Quotes Application',
-  description: 'Random Quotes Application 130625',
+  description: 'Random Quotes Application 200825',
 };
 
 export default function RootLayout({ children }) {

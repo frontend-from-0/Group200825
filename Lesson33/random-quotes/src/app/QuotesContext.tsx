@@ -3,6 +3,7 @@
 import { createContext, useState } from 'react';
 import { quotes as initialQuotes, type Quote } from '@/quotes';
 import { getRandomNumber } from '@/utils/helper-functions';
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 interface QuotesContextInterface {
   quotes: Quote[];
@@ -22,6 +23,8 @@ export const QuotesContext =
   createContext<QuotesContextInterface>(InitialQuotesContext);
 
 export function QuotesContextProvider({ children }) {
+  const { user } = useUser();
+  console.log('user', user);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [quotes, setQuotes] = useState(initialQuotes);
 
