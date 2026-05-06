@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useUser } from "@auth0/nextjs-auth0/client";
-
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 import {
   NavigationMenu,
@@ -59,21 +58,32 @@ export function TopNav() {
         })}
 
         {!!user ? (
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <a href="/auth/logout">Log out</a>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+          <>
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link href={'/user/quotes/new'}>Add a quote</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <a href='/auth/logout'>Log out</a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </>
         ) : (
           <NavigationMenuItem>
             <NavigationMenuLink
               asChild
               className={navigationMenuTriggerStyle()}
             >
-              <a href="/auth/login">Log in</a>
+              <a href='/auth/login'>Log in</a>
             </NavigationMenuLink>
           </NavigationMenuItem>
         )}
