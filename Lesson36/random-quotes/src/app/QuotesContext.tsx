@@ -1,13 +1,15 @@
 'use client';
 
-import { createContext, useState } from 'react';
-import { quotes as initialQuotes, type Quote } from '@/quotes';
+import { createContext, useEffect, useState } from 'react';
 import { getRandomNumber } from '@/utils/helper-functions';
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { Quote } from '@/types/quotes';
 
 interface QuotesContextInterface {
   quotes: Quote[];
   quoteIndex: number;
+  isLoading: boolean;
+  error: string | null;
   handleQuoteIndexUpdate: () => void;
   handleLikeQuote: () => void;
 }
@@ -15,6 +17,8 @@ interface QuotesContextInterface {
 const InitialQuotesContext = {
   quotes: [],
   quoteIndex: 0,
+  isLoading: true,
+  error: null,
   handleQuoteIndexUpdate: () => console.log(''),
   handleLikeQuote: () => console.log(''),
 };
@@ -24,11 +28,36 @@ export const QuotesContext =
 
 export function QuotesContextProvider({ children }) {
   const { user } = useUser();
-  console.log('user', user);
   const [quoteIndex, setQuoteIndex] = useState(0);
-  const [quotes, setQuotes] = useState(initialQuotes);
+  const [quotes, setQuotes] = useState<Quote[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/quotes');
+        if (!response.ok) {
+          throw new Error('Failed to load quotes');
+        }
+        const data = await response.json();
+        setQuotes(data.quotes);
+        setQuoteIndex(0);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load quotes');
+        setQuotes([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   function handleQuoteIndexUpdate() {
+    if (quotes.length === 0) {
+      return;
+    }
     const nextIndex = getRandomNumber(0, quotes.length - 1);
     setQuoteIndex(nextIndex);
   }
@@ -48,7 +77,14 @@ export function QuotesContextProvider({ children }) {
 
   return (
     <QuotesContext
-      value={{ quotes, quoteIndex, handleQuoteIndexUpdate, handleLikeQuote }}
+      value={{
+        quotes,
+        quoteIndex,
+        isLoading,
+        error,
+        handleQuoteIndexUpdate,
+        handleLikeQuote,
+      }}
     >
       {children}
     </QuotesContext>

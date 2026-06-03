@@ -42,7 +42,12 @@ export type AddNewQuoteState = {
 };
 
 export interface Quote {
+  _id: unknown;
   quote: string;
   author: string;
   likedBy?: number;
+  createdBy: string;
+  adminApproved: boolean;
+  createdAt: string;
+  updatedAt: string;
 }

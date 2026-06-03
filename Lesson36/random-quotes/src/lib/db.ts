@@ -17,3 +17,8 @@ export async function getDb(): Promise<Db> {
   await client.connect();
   return client.db(dbName);
 }
+
+export enum Collections {
+  quotes = 'quotes',
+  users = 'users'
+}

@@ -4,7 +4,7 @@
 Variables in Node.js/NextJs disappear when the server restarts. The database is the long-term memory.
 
 ### The Request/Response Cycle:
-Frontend (React/HTML) sends a request → Backend (Node/Express) receives it → Database (MongoDB) stores/finds it → Backend formats it → Frontend displays it.
+Frontend (React/HTML) sends a request → Backend (Node/Express; Server component, Server action or Api route in NextJS) receives it → Database (MongoDB) stores/finds it → Backend formats it → Frontend displays it.
 
 ### CRUD is the Universal Language
 
@@ -37,4 +37,15 @@ Regardless of the DB, they are always doing four things: Create, Read, Update, a
 
 - Avoid accidentally making 100 database calls in a loop instead of one efficient call. It’s the #1 way to slow down an app.
 
+```JS
+  const db = await getDb();
+  const col = db.collection(Collections.quotes);
+  // This is just a bad example that you should not use!!!
+  // quotes.map(async (quote) => {
+  //   await col.insertOne(quote);
+  // })
+  // How to do it right:
+  col.insertMany(quotes);
+
+```
 

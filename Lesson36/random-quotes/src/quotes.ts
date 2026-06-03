@@ -1,6 +1,10 @@
-import { Quote } from './types/quotes';
+export interface SeedQuote {
+  quote: string;
+  author: string;
+  likedBy?: number;
+}
 
-export const quotes: Quote[] = [
+export const quotes: SeedQuote[] = [
   {
     quote: 'Be yourself; everyone else is already taken.',
     author: 'Oscar Wilde',
