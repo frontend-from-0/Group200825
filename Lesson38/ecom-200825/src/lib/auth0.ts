@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 
 export const auth0 = new Auth0Client();
 
+// The issue in the lesson was that I missed adding /roles here while the action in auth0 was adding it.
 const ROLES_CLAIM = "https://pyp-admin/roles";
 
 export enum AppRole {
