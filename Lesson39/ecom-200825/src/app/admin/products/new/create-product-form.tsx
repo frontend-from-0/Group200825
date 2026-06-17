@@ -8,15 +8,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { ACCEPTED_IMAGE_ACCEPT_ATTR, MAX_IMAGE_MB } from "@/lib/product-images";
 import { Currency, EU_CURRENCY_OPTIONS } from "@/types/currency";
 import { PRODUCT_CATEGORY_OPTIONS, ProductCategory } from "@/types/product";
-
-import {
-  createProduct,
-  type CreateProductFieldErrors,
-  type CreateProductFormValues,
-  type CreateProductState,
-} from "./action";
+import { createProduct, CreateProductFieldErrors, CreateProductFormValues, CreateProductState } from "./action";
 
 const initialValues: CreateProductFormValues = {
   name: "",
@@ -228,7 +223,8 @@ export function CreateProductForm() {
         <div>
           <h2 className="text-base font-semibold text-foreground">Images</h2>
           <p className="text-sm text-muted-foreground">
-            Files are uploaded to Vercel Blob; only the returned URLs are saved on the product.
+            Files are uploaded to Vercel Blob; only the returned URLs are saved on
+            the product. Max {MAX_IMAGE_MB} MB per image.
           </p>
         </div>
 
@@ -241,7 +237,7 @@ export function CreateProductForm() {
             id="images"
             name="images"
             type="file"
-            accept="image/jpeg,image/png,image/webp,image/gif"
+            accept={ACCEPTED_IMAGE_ACCEPT_ATTR}
             multiple
             required
             aria-invalid={Boolean(fieldError(fieldErrors, "images"))}
