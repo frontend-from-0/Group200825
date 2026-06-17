@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
 
 import { CreateProductForm } from "./create-product-form";
+import { CreateProductSuccess } from "./create-product-success";
 
 export const metadata: Metadata = {
   title: "Create product | Admin",
   description: "Add a new product to the store",
 };
 
-export default function NewProductPage() {
+type NewProductPageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function NewProductPage({ searchParams }: NewProductPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const createdParam = resolvedSearchParams.created;
+  const createdProductId = Array.isArray(createdParam)
+    ? createdParam[0]
+    : createdParam;
+
   return (
     <main className="mx-auto flex w-full max-w-3xl flex-col gap-8 px-6 py-10">
       <div className="space-y-2">
@@ -19,7 +30,11 @@ export default function NewProductPage() {
         </p>
       </div>
 
-      <CreateProductForm />
+      {createdProductId ? (
+        <CreateProductSuccess productId={createdProductId} />
+      ) : (
+        <CreateProductForm />
+      )}
     </main>
   );
 }

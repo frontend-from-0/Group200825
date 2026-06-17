@@ -35,36 +35,11 @@ export function CreateProductForm() {
     CreateProductState | null,
     FormData
   >(createProduct, null);
-
-  const values = state && !state.success ? (state.values ?? initialValues) : initialValues;
-  const fieldErrors = state && !state.success ? state.fieldErrors : undefined;
-  const formKey =
-    state && !state.success && state.values
-      ? `retry-${state.values.name}-${state.values.price}-${state.values.stock}`
-      : "create-product";
-
-  if (state?.success) {
-    return (
-      <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-foreground">Product created</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The product was saved to MongoDB and images were uploaded to Vercel Blob.
-        </p>
-        <p className="mt-4 text-sm">
-          Product ID:{" "}
-          <code className="rounded bg-muted px-1.5 py-0.5 text-xs">{state.productId}</code>
-        </p>
-        <div className="mt-6 flex gap-3">
-          <Button asChild>
-            <Link href="/admin/products/new">Create another product</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/admin/products">View all products</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  const values = state?.values ?? initialValues;
+  const fieldErrors = state?.fieldErrors;
+  const formKey = state?.values
+    ? `retry-${state.values.name}-${state.values.price}-${state.values.stock}`
+    : "create-product";
 
   return (
     <form
@@ -73,7 +48,7 @@ export function CreateProductForm() {
       className="space-y-8"
       encType="multipart/form-data"
     >
-      {state && !state.success ? (
+      {state ? (
         <div
           role="alert"
           className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
