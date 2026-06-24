@@ -1,4 +1,4 @@
-import type { Product as PrismaProduct } from "@prisma/client";
+import type { Product as PrismaProduct } from "@/generated/prisma/client";
 
 import { parseStorefrontFiltersFromSearchParams } from "@/lib/validation";
 import type { CreateProductData } from "@/lib/validation/product";

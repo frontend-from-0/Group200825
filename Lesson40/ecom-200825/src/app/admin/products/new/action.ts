@@ -95,6 +95,7 @@ export async function createProduct(
   );
 
   let productId: string;
+  // Add  stripe product + price id
   try {
     const result = await createProductRecord(parsed.data, imageUrls);
     productId = result.id;

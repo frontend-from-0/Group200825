@@ -26,6 +26,8 @@ model Product {
   isActive    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  stripePriceId String
+  stripeProductId String
 
   @@map("products")
 }
