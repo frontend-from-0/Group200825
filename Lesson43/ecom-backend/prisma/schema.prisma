@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  description     String
+  priceCents      Int // smallest currency unit: 1999 = 19.99 in the given currency
+  currency        Currency @default(EUR)
+  category        Category
+  stock           Int      @default(0)
+  imageUrls       String[] // URLs returned by Vercel Blob
+  isActive        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  stripePriceId   String
+  stripeProductId String
+  orderItems OrderItem[]
+
+  @@map("products")
+}
+
+enum Currency {
+  EUR
+  GBP
+  TRY
+}
+
+enum Category {
+  ELECTRONICS
+  CLOTHING
+  HOME
+  SPORTS
+  OTHER
+}
+
+
+enum OrderStatus {
+  PENDING
+  SHIPPING
+  COMPLETED
+}
+
+model Order {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  orderItems OrderItem[]
+
+  status OrderStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  quantity Int
+  priceCents      Int // smallest currency unit: 1999 = 19.99 in the given currency
+  currency        Currency @default(EUR)
+
+  orderId String @db.ObjectId
+  order Order @relation(fields: [orderId], references: [id])
+
+  productId String @db.ObjectId
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("order-items")
+}
+
+model User {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  orders Order[]
+
+  @@map("users")
+}
+
+// user info, order info (time etc), products (what was purchaised)
+
+model TestOrder {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  description String
+
+  @@map("test-orders")
+}
