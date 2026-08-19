@@ -1,3 +1,6 @@
+import * as z from "zod"; 
+
+
 export enum ProductCategory {
   ELECTRONICS = "ELECTRONICS",
   CLOTHING = "CLOTHING",
@@ -54,3 +57,13 @@ export const PRODUCT_SORT_OPTIONS: {
 export function isProductSort(value: string): value is ProductSort {
   return Object.values(ProductSort).includes(value as ProductSort);
 }
+
+
+
+export const productDescriptionRequestSchema = z.object({
+  title: z.string().trim().min(2).max(100)
+});
+
+export const productDescriptionResponseSchema = z.object({
+  description: z.string().min(150).max(500)
+});

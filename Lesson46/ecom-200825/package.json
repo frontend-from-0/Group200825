@@ -11,10 +11,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^4.0.43",
+    "@ai-sdk/react": "^4.0.72",
     "@auth0/nextjs-auth0": "4.22.0",
     "@prisma/client": "6.19",
     "@stripe/stripe-js": "^9.8.0",
     "@vercel/blob": "2.4.0",
+    "ai": "^7.0.69",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "dotenv": "17.4.2",

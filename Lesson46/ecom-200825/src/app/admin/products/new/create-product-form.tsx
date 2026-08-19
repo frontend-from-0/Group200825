@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, type ReactNode } from "react";
+import { useActionState, useRef, type ReactNode } from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import { ACCEPTED_IMAGE_ACCEPT_ATTR, MAX_IMAGE_MB } from "@/lib/product-images";
 import { Currency, EU_CURRENCY_OPTIONS } from "@/types/currency";
 import { PRODUCT_CATEGORY_OPTIONS, ProductCategory } from "@/types/product";
 import { createProduct, CreateProductFieldErrors, CreateProductFormValues, CreateProductState } from "./action";
+import { generateProductDescription } from '@/lib/ai';
 
 const initialValues: CreateProductFormValues = {
   name: "",
@@ -40,6 +41,15 @@ export function CreateProductForm() {
   const formKey = state?.values
     ? `retry-${state.values.name}-${state.values.price}-${state.values.stock}`
     : "create-product";
+    const productNameRef = useRef<HTMLInputElement>(null);
+
+
+    async function handleGenerateClick () {
+      const value = productNameRef.current?.value;
+
+      //todo : check if value is present (validate input)
+      const description = await generateProductDescription(value);
+    }
 
   return (
     <form
@@ -76,9 +86,11 @@ export function CreateProductForm() {
               name="name"
               defaultValue={values.name}
               placeholder="Running shoes"
+              ref={productNameRef}
               
               aria-invalid={Boolean(fieldError(fieldErrors, "name"))}
             />
+            <Button onClick={handleGenerateClick}>Generate Description </Button>
           </FormField>
 
           <FormField

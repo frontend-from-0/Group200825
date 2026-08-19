@@ -1,13 +1,11 @@
 import {
   Output,
-  createTextStreamResponse,
-  streamText,
-  toTextStream,
+  generateText,
 } from 'ai';
 
 import { assertApiKeyConfigured, getOpenAIModel } from '@/lib/ai';
 import { SESSION_SYSTEM_PROMPT } from '@/lib/prompts';
-import { quizRequestSchema, quizResponseSchema } from '@/lib/schema';
+import { productDescriptionRequestSchema, productDescriptionResponseSchema } from '@/types/product';
 
 export const maxDuration = 120;
 
@@ -28,30 +26,22 @@ export async function POST(req: Request) {
     return Response.json({ error: 'Invalid JSON body.' }, { status: 400 });
   }
 
-  const parsed = quizRequestSchema.safeParse(body);
+  const parsed = productDescriptionRequestSchema.safeParse(body);
   if (!parsed.success) {
     const message =
       parsed.error.issues[0]?.message ?? 'Invalid request body.';
     return Response.json({ error: message }, { status: 400 });
   }
 
-  const { topic, questionCount } = parsed.data;
+  const { title } = parsed.data;
 
-  const result = streamText({
+  const { output } = generateText({
     model: getOpenAIModel(),
-    output: Output.object({ schema: quizResponseSchema }),
+    output: Output.object({ schema: productDescriptionResponseSchema }),
     instructions: SESSION_SYSTEM_PROMPT,
-    prompt: `User topic: ${topic}\nGenerate exactly ${questionCount} questions.`,
+    prompt: `Product title: ${title}.`,
   });
 
-  console.log('result', result.stream);
 
-  const finalResult =  createTextStreamResponse({
-    stream: toTextStream({ stream: result.stream }),
-  });
-
-  console.log('finalResult',finalResult);
-
-
-  return finalResult;
+  return output;
 }
