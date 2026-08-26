@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionType {
+  expense
+  income
+}
+
+enum BudgetStatus {
+  active
+  archived
+}
+
+enum ApplyRule {
+  immediate
+  next_month
+}
+
+enum NotificationType {
+  budget_created
+  near_limit
+  over_limit
+  limit_adjusted
+}
+
+model User {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  auth0Id       String   @unique
+  email         String
+  name          String?
+  locale        String   @default("en")
+  timezone      String   @default("Europe/Istanbul")
+  balanceHidden Boolean  @default(false)
+  allowlisted   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  balance       AccountBalance?
+  budgets       Budget[]
+  transactions  Transaction[]
+  notifications Notification[]
+}
+
+model AccountBalance {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @unique @db.ObjectId
+  amountEur  Float
+  isDemoSeed Boolean  @default(true)
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Budget {
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String       @db.ObjectId
+  cycleStart     DateTime
+  cycleEnd       DateTime
+  totalAmountEur Float
+  status         BudgetStatus @default(active)
+  isDemoSeed     Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categories Category[]
+
+  @@index([userId, status])
+  @@index([userId, cycleStart])
+}
+
+model Category {
+  id               String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String     @db.ObjectId
+  budgetId         String     @db.ObjectId
+  key              String?
+  name             String
+  icon             String
+  color            String
+  limitEur         Float
+  pendingLimitEur  Float?
+  applyRule        ApplyRule  @default(immediate)
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  budget       Budget        @relation(fields: [budgetId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@index([budgetId])
+  @@index([userId])
+}
+
+model Transaction {
+  id         String          @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String          @db.ObjectId
+  categoryId String?         @db.ObjectId
+  budgetId   String          @db.ObjectId
+  type       TransactionType
+  amountEur  Float
+  title      String
+  note       String?
+  date       DateTime
+  isDemoSeed Boolean         @default(false)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([userId, date])
+  @@index([budgetId])
+  @@index([categoryId])
+}
+
+model Notification {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String           @db.ObjectId
+  type      NotificationType
+  title     String
+  body      String
+  href      String?
+  dedupeKey String
+  readAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, dedupeKey])
+  @@index([userId, readAt])
+}
