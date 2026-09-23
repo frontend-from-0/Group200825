@@ -34,7 +34,7 @@ Contribute to open-source projects, especially if you can fix bugs or add small 
 
 
 #### Networking & Communities:
-- https://adplist.org/explore
+- https://adplist.org
 
 - Slack/Discord: Join local developer communities (e.g., TurkeyJS, Stockholm.js). 
 Türkiye Bilişim Derneği https://www.tbd.org.tr/en/
